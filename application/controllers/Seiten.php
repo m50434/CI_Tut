@@ -11,10 +11,17 @@ class Seiten extends CI_Controller {
 			// Diese Seite gibts nicht
 			show_404();
 		}
-		
+		else{
 		
 		$data['title'] = ucfirst($seite);
 		$data['email'] = 'test@test.com';
-		$this->load->view('Seiten/'.$seite, $data);
+		
+		$this->load->library('template');
+		
+		$this->template->set('Adresse', 'Meine Adresse Str. PLZ');
+		$this->template->load('basic_template','Seiten/'.$seite, $data);
+		
+		
+		}
 	}
 }
