@@ -52,6 +52,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'welcome';
 $route['Testcontroller/(:any)'] = 'Testcontroller/$1';
 
+$route['NeuerController/(:any)'] = 'NeuerController/$1';
+
+$route['Seiten/(:any)'] = 'Seiten/view/$1';
+$route['Seiten'] = 'Seiten/view';
+
 
 
 $route['404_override'] = '';
