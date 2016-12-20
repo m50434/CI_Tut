@@ -15,10 +15,12 @@ class Seiten extends CI_Controller {
 		
 		$data['title'] = ucfirst($seite);
 		$data['email'] = 'test@test.com';
+		$data['nav'] = $seite;
 		
 		$this->load->library('template');
 		
 		$this->template->set('Adresse', 'Meine Adresse Str. PLZ');
+		$this->template->set('Telefon', '007');
 		$this->template->load('basic_template','Seiten/'.$seite, $data);
 		
 		
