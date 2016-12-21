@@ -37,6 +37,16 @@ class Datenbank extends CI_Controller {
 		$inhalt = $this->input->post('ta_inhalt');
 		
 		$this->Datenbank_model->create($titel,$inhalt);
+		
+		echo "
+			<div class=\"panel panel-default\">
+			  <div class=\"panel-heading\">" . $titel . "</div>
+			  <div class=\"panel-body\">".
+			    $inhalt 
+			  ."</div>
+			</div>	
+		
+		";
 	}
 }
 

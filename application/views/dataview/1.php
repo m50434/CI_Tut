@@ -3,25 +3,34 @@
 
  <script>
     $(document).ready(function(){
-	    $("#submit").click(function(){
-	    	alert("asdassd");
-	        $.ajax({
-			    type:"POST",
-			    url: "<?php echo site_url('Datenbank/create');?>",
-			    data:$("#myForm").serialize(),
-			    success: function (response) {
-					    
-				    alert(response);
-				  
-				    }
-			    ,})
-	    ;})
-	    
-	    
+			    $("#submit").click(function(){
+			    	
+			        $.ajax({
+					    type:"POST",
+					    url: "<?php echo site_url('Datenbank/create');?>",
+					    data:$("#myForm").serialize(),
+					    success: function (response) {
+							    
+						    //alert(response);
+						    $("#eintraege").append(response);
+						    $('#eintraege .panel-default:last').hide().fadeIn(2000);
+						    $("#myForm").trigger("reset");
+						  
+						    }
+					    ,})
+			    ;})
+			    
+			    
+			$("#neuerEintrag").click(function(){
+				
+				$("#form").removeClass("collapse");
+			});   
+
+
+
 	$("#neuerEintrag").click(function(){
-		
-		$("#form").removeClass("collapse");
-	});    
+        $("#formular").removeClass("collapse");
+	});			 
 	    
     ;});
  </script>
@@ -32,6 +41,12 @@
 <body>
 
 <div class="container">
+<div class="row">
+<button id="neuerEintrag" type="button" class="btn btn-default btn-primary pull-right">Neuer Eintrag</button>
+</div>
+
+<div class="row">
+<div id="eintraege">
 	<?php 
 foreach ($database as $data_item){
 	
@@ -51,9 +66,12 @@ foreach ($database as $data_item){
 
 ?>
 </div>
+</div>
+</div>
 
-<div class="container">
+<div id="formular" class="container collapse">
  <div class="row">
+ 
  <div class="col-xs-8">
  <form id="myForm" class="form-horizontal">
   <div class="form-group">
@@ -78,7 +96,7 @@ foreach ($database as $data_item){
 </form>
 </div>
 </div>
-
+<br><br><br><br><br>
 </body>
 </html>
 
