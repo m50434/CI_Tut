@@ -8,10 +8,18 @@ class Datenbank_model extends CI_Model {
 	}
 	
 	
-	public function get_data(){
+	public function get_data($id = False){
+		
+		if ($id === FALSE)
+		{
+			$query = $this->db->get('table');
+			return $query->result_array();
+		}
 		
 		
-		$query = $this->db->get('table'); // Select * From table
+		
+		$this->db->where('ID', intval($id));
+		$query = $this->db->get('table');
 		return $query->result_array();
 		
 	}
