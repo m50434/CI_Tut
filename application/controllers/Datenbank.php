@@ -2,7 +2,10 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Datenbank extends CI_Controller {
-
+  function __construct(){
+  	 parent::__construct();
+  	 $this->load->model('Datenbank_model');
+  }
 
 	public function dataview($number = '1'){
 
@@ -16,6 +19,7 @@ class Datenbank extends CI_Controller {
 			$data['title'] = $number;
 			$data['email'] = 'test@test.com';
 			$data['nav'] = $number;
+			$data['database'] = $this->Datenbank_model->get_data();
 
 			$this->load->library('template');
 
