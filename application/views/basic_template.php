@@ -64,6 +64,7 @@
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search">
         </div>
+        <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
       
@@ -78,8 +79,16 @@
 
  <div><?php echo $content; ?></div>
 
+ <nav class="navbar navbar-default navbar-fixed-bottom navbar-inverse">
+  <div class="container">
+    <div class="row">
+    	<div class=" col-xs-12 text-warning text-center">FOOTER  <?php echo $Adresse; ?> und <?php echo $Telefon; ?></div>
+    
+    </div>
+    
+  </div>
+</nav>
 
- <div>FOOTER  <?php echo $Adresse; ?> und <?php echo $Telefon; ?></div>
 </body>
 
 </html>
