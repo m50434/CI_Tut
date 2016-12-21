@@ -30,5 +30,11 @@ class Datenbank_model extends CI_Model {
 		$this->db->set('Titel', $titel);
 		$this->db->set('Inhalt', $inhalt);
 		$this->db->insert('table');
+		return $this->db->insert_id();
+	}
+	
+	public function delete($id){
+		$this->db->where('ID', intval($id));
+		$this->db->delete('table');
 	}
 }

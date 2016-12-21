@@ -30,7 +30,26 @@
 
 	$("#neuerEintrag").click(function(){
         $("#formular").removeClass("collapse");
-	});			 
+	});	
+
+
+	$(".glyphicon-trash").click(function(){
+        var id = $(this).data("id");
+        //alert(id);
+         $.ajax({
+					    type:"POST",
+					    url: "<?php echo site_url('Datenbank/delete');?>",
+					    data:"id="+id,
+					    success: function (response) {
+							    
+						    //alert(response);
+						    $("#eintrag"+id).fadeOut("slow");
+						  
+						    }
+		 ,})
+	});	
+
+			 
 	    
     ;});
  </script>
@@ -51,14 +70,15 @@
 foreach ($database as $data_item){
 	
 		echo "
-			
+			<div id=\"eintrag". $data_item['ID'] . "\">
 			<div class=\"panel panel-default\">
+    		  <span data-id=\"" . $data_item['ID'] . "\"  class=\"glyphicon glyphicon-trash pull-right text-danger\" aria-hidden=\"true\"></span>
 			  <div class=\"panel-heading\">" . $data_item['Titel'] . "</div>
 			  <div class=\"panel-body\">".
 			    $data_item['Inhalt'] 
 			  ."</div>
 			</div>
-			
+			</div>
 			
 			";
 }

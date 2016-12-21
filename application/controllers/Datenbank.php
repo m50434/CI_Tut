@@ -36,18 +36,26 @@ class Datenbank extends CI_Controller {
 		$titel = $this->input->post('ip_titel');
 		$inhalt = $this->input->post('ta_inhalt');
 		
-		$this->Datenbank_model->create($titel,$inhalt);
+		$id = $this->Datenbank_model->create($titel,$inhalt);
 		
 		echo "
 			<div class=\"panel panel-default\">
-			  <div class=\"panel-heading\">" . $titel . "</div>
-			  <div class=\"panel-body\">".
-			    $inhalt 
-			  ."</div>
+				<span data-id=\"" . $id . "\"  class=\"glyphicon glyphicon-trash pull-right text-danger\" aria-hidden=\"true\"></span>
+				  <div class=\"panel-heading\">" . $titel . "</div>
+				  <div class=\"panel-body\">".
+			      $inhalt 
+			      ."</div>
 			</div>	
 		
 		";
 	}
+	
+	public function delete(){
+		$id = $this->input->post('id');
+		$this->Datenbank_model->delete($id);
+		
+	}
+
 }
 
 
