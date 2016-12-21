@@ -32,7 +32,7 @@
       <ul class="nav navbar-nav">
         	<?php foreach ($nav_list as $li => $nav_item): ?>
 	
-				<li<?= ($nav == $nav_item ? ' class="active">' : '>')?>
+				<?= ($nav == $nav_item ? '<li class="active">' : '<li>')?>
 				  
 				  <?php echo anchor('Seiten/'.$nav_item,$nav_item);?> 
 				  
@@ -50,7 +50,7 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
+            <li><?= anchor('Datenbank/1','Erste Datenbankseite')?></li>
             <li><a href="#">Another action</a></li>
             <li><a href="#">Something else here</a></li>
             <li role="separator" class="divider"></li>
