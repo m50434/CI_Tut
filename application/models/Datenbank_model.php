@@ -23,4 +23,12 @@ class Datenbank_model extends CI_Model {
 		return $query->result_array();
 		
 	}
+	
+	
+	public function create($titel, $inhalt){
+		
+		$this->db->set('Titel', $titel);
+		$this->db->set('Inhalt', $inhalt);
+		$this->db->insert('table');
+	}
 }

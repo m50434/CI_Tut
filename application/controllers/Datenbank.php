@@ -30,4 +30,28 @@ class Datenbank extends CI_Controller {
 
 		}
 	}
+	
+	public function create(){
+		
+		$titel = $this->input->post('ip_titel');
+		$inhalt = $this->input->post('ta_inhalt');
+		
+		$this->Datenbank_model->create($titel,$inhalt);
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
