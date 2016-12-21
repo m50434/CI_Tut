@@ -4,7 +4,21 @@
  <script>
     $(document).ready(function(){
 			    $("#submit").click(function(){
-			    	
+			    	if($("#Eintrag_ID").val()!=""){
+						var id = $("#Eintrag_ID").val();
+						$.ajax({
+						    type:"POST",
+						    url: "<?php echo site_url('Datenbank/update');?>",
+						    data:$("#myForm").serialize(),
+						    success: function (response) {
+								    
+							    window.location.reload();
+							  
+							    }
+						    ,})
+
+			    	}
+			    	else{
 			        $.ajax({
 					    type:"POST",
 					    url: "<?php echo site_url('Datenbank/create');?>",
@@ -18,6 +32,7 @@
 						  
 						    }
 					    ,})
+			    	}
 			    ;})
 			    
 			    
@@ -57,6 +72,7 @@
         
         $("#ip_titel").val($(this).data("titel"));
         $("#ta_inhalt").val($(this).data("inhalt"));
+        $("#Eintrag_ID").val(id);
 	});	
 
 			 
@@ -71,9 +87,9 @@
 
 <div class="container">
 <div class="row">
-<button id="neuerEintrag" type="button" class="btn btn-default btn-primary pull-right">Neuer Eintrag</button>
+  <div class="col-xs-12"><button id="neuerEintrag" type="button" class="btn btn-default btn-primary pull-right">Neuer Eintrag</button></div>
 </div>
-
+<br>
 <div class="row">
 <div id="eintraege">
 	<?php 
@@ -82,7 +98,8 @@ foreach ($database as $data_item){
 		echo "
 			<div id=\"eintrag". $data_item['ID'] . "\">
 			<div class=\"panel panel-default\">
-			  <span data-id=\"" . $data_item['ID'] . "\" data-titel=\"". $data_item['Titel'] ."\" data-inhalt=\"". $data_item['Inhalt'] ."\" class=\"glyphicon glyphicon-pencil pull-right\" aria-hidden=\"true\"></span>
+			  
+			  <span style=\"padding-left: 5px\"; data-id=\"" . $data_item['ID'] . "\" data-titel=\"". $data_item['Titel'] ."\" data-inhalt=\"". $data_item['Inhalt'] ."\" class=\"glyphicon glyphicon-pencil pull-right\" aria-hidden=\"true\"></span>
     		  <span data-id=\"" . $data_item['ID'] . "\"  class=\"glyphicon glyphicon-trash pull-right text-danger\" aria-hidden=\"true\"></span>
 			  <div class=\"panel-heading\">" . $data_item['Titel'] . "</div>
 			  <div class=\"panel-body\">".
@@ -120,7 +137,8 @@ foreach ($database as $data_item){
   
   <div class="form-group">
   <div class="col-xs-11">
-  <button id="submit" type="button" "btn btn-default">Send</button>
+  <input type="hidden" id="Eintrag_ID" name="id" value="" class="form-control">
+  <button id="submit" type="button" class="btn btn-default">Send</button>
   </div>
   </div>
   </div>

@@ -40,6 +40,7 @@ class Datenbank extends CI_Controller {
 		
 		echo "
 			<div class=\"panel panel-default\">
+				<span data-id=\"" . $id . "\" data-titel=\"". $titel ."\" data-inhalt=\"". $inhalt ."\" class=\"glyphicon glyphicon-pencil pull-right\" aria-hidden=\"true\"></span>
 				<span data-id=\"" . $id . "\"  class=\"glyphicon glyphicon-trash pull-right text-danger\" aria-hidden=\"true\"></span>
 				  <div class=\"panel-heading\">" . $titel . "</div>
 				  <div class=\"panel-body\">".
