@@ -5,7 +5,10 @@
 <!-- Bootstrap -->
 <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.min.css');?>" />
 
+<script src="<?php echo base_url('assets/js/jquery-3.1.1.min.js');?>"></script>
 
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -21,14 +24,29 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Brand</a>
+      <a class="navbar-brand" href="#"><img width="30" src="<?php echo base_url('assets/img/penguin.png');?>"></img></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Link</a></li>
+        	<?php foreach ($nav_list as $li => $nav_item): ?>
+	
+				<li<?= ($nav == $nav_item ? ' class="active">' : '>')?>
+				  
+				  <?php echo anchor('Seiten/'.$nav_item,$nav_item);?> 
+				  
+				  <?= ($nav == $nav_item ? '</b>' : '')?>
+				
+				</li>
+   			 <?php endforeach;?>
+        
+        
+        
+        
+        
+        
+        
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -42,44 +60,19 @@
           </ul>
         </li>
       </ul>
-      <form class="navbar-form navbar-left">
+      <form class="navbar-form navbar-left pull-right">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search">
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Link</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-          </ul>
-        </li>
-      </ul>
+      
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
 
 
 
-<ul>
-
-	<?php foreach ($nav_list as $li => $nav_item): ?>
-	
-		<li><?= ($nav == $nav_item ? '<b>' : '')?>
-		  
-		  <?php echo anchor('Seiten/'.$nav_item,$nav_item);?> 
-		  
-		  <?= ($nav == $nav_item ? '</b>' : '')?>
-		
-		</li>
-    <?php endforeach;?>
-</ul>
 
 </div>
 
