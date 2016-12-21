@@ -50,6 +50,17 @@ class Datenbank extends CI_Controller {
 		";
 	}
 	
+	public function update(){
+		$titel = $this->input->post('ip_titel');
+		$inhalt = $this->input->post('ta_inhalt');
+		$id=$this->input->post('id');
+	
+			
+		$this->Datenbank_model->update($id,$titel,$inhalt);
+	
+	}
+	
+	
 	public function delete(){
 		$id = $this->input->post('id');
 		$this->Datenbank_model->delete($id);

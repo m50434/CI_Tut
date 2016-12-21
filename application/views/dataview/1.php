@@ -49,6 +49,16 @@
 		 ,})
 	});	
 
+
+	$(".glyphicon-pencil").click(function(){
+		$("#formular").removeClass("collapse");
+        var id = $(this).data("id");
+        //alert(id);
+        
+        $("#ip_titel").val($(this).data("titel"));
+        $("#ta_inhalt").val($(this).data("inhalt"));
+	});	
+
 			 
 	    
     ;});
@@ -72,6 +82,7 @@ foreach ($database as $data_item){
 		echo "
 			<div id=\"eintrag". $data_item['ID'] . "\">
 			<div class=\"panel panel-default\">
+			  <span data-id=\"" . $data_item['ID'] . "\" data-titel=\"". $data_item['Titel'] ."\" data-inhalt=\"". $data_item['Inhalt'] ."\" class=\"glyphicon glyphicon-pencil pull-right\" aria-hidden=\"true\"></span>
     		  <span data-id=\"" . $data_item['ID'] . "\"  class=\"glyphicon glyphicon-trash pull-right text-danger\" aria-hidden=\"true\"></span>
 			  <div class=\"panel-heading\">" . $data_item['Titel'] . "</div>
 			  <div class=\"panel-body\">".
@@ -97,7 +108,7 @@ foreach ($database as $data_item){
   <div class="form-group">
     <label class="col-xs-1" for="exampleInputName2">Titel</label>
      <div class="col-xs-11">
-    <input type="text" class="form-control" id="ip_titel" name="ip_titel" placeholder="Inhalt">
+    <input type="text" class="form-control" id="ip_titel" name="ip_titel">
     </div>
   </div>
   <div class="form-group">
