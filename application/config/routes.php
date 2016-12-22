@@ -64,6 +64,7 @@ $route['Datenbank/(:num)'] = 'Datenbank/dataview/$1';
 $route['Dashboard'] = 'Dashboard/dataview/1';
 $route['Logout'] = 'Dashboard/logout';
 
+$route['Suche/(:any)/(:num)'] = 'Suche/$1/$2';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

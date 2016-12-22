@@ -60,9 +60,9 @@
           </ul>
         </li>
       </ul>
-      <form class="navbar-form navbar-left pull-right">
+      <form action="<?= site_url('Suche/suche_suchwort/2') ?>" method="post" class="navbar-form navbar-left pull-right">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
+          <input type="text" class="form-control" name="suchwort" placeholder="Search">
         </div>
         <span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
         <button type="submit" class="btn btn-default">Submit</button>
