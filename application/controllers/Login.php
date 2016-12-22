@@ -15,10 +15,23 @@ class Login extends CI_Controller {
 			$result = $this->Login_model->pruefe_user($_POST);
 			
 			if(!empty($result)){
-				echo "User existiert";
+				
+				$data = [
+						
+						'id_user' => $result->ID,
+						'username' => $result->User
+						
+				];
+				
+				$this->session->set_userdata($data);
+				redirect('Dashboard');
+				
+				
+				
 			}
 			else{
-				echo "Login fehlgeschlagen";
+				$this->session->set_flashdata('flash_data', 'Passwort oder Name falsch');
+				redirect('Login');
 			}
 		}
 		
