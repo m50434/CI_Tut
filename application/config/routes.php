@@ -57,6 +57,7 @@ $route['NeuerController/(:any)'] = 'NeuerController/$1';
 $route['Seiten/(:any)'] = 'Seiten/view/$1';
 $route['Seiten'] = 'Seiten/view';
 
+$route['Login/(:any)'] = 'Login/$1';
 
 $route['Datenbank/(:num)'] = 'Datenbank/dataview/$1';
 
